@@ -30,3 +30,9 @@ jobs:
       
     - name: Run make
       run: make
+
+    - name: Archive built firmware
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-output
+        path: build/ch.elf
