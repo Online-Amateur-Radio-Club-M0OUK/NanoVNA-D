@@ -31,29 +31,7 @@ jobs:
     - name: Run make
       run: make
 
-    - name: Archive built firmware
-      uses: actions/upload-artifact@v3
+    - name: Release
+      uses: softprops/action-gh-release@v1
       with:
-        path: build/ch.elf
-
-    - name: Create release
-      uses: actions/create-release@v1
-      id: create_release
-      with:
-        draft: false
-        prerelease: true
-        release_name: release_name
-        tag_name: ${{ github.ref }}
-        body_path: CHANGELOG.md
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-
-    - name: Upload artifact to release
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./ch.elf
-        asset_name: ch.elf
-        asset_content_type: application/elf
+        files: build/ch.elf
