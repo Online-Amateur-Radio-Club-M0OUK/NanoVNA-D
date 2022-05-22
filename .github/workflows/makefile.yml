@@ -41,3 +41,4 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       with:
         files: build/ch.elf
+        generate_release_notes: true
