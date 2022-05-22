@@ -16,8 +16,8 @@ jobs:
         
     - name: Install ARM cross tools
       run: |
-        wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2018q4/gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2
-        mkdir ./arm-cross-tools
+        wget -q https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2018q4/gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2
+        mkdir /home/runner/arm-cross-tools
         tar xfj gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2 -C /home/runner/arm-cross-tools
         PATH=/home/runner/arm-cross-tools/gcc-arm-none-eabi-8-2018-q4-major/bin:$PATH
       
