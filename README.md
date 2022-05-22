@@ -15,7 +15,9 @@ enthusiast.
 
 This repository contains source of NanoVNA firmware.
 
-This is an OARC fork with the aim of adding a few feature.
+This is an OARC fork with the aim of adding a few feature to the firmware.
+
+[![Build status](https://github.com/Online-Amateur-Radio-Club-M0OUK/NanoVNA-D/actions/workflows/makefile.yml/badge.svg?branch=master)](https://github.com/Online-Amateur-Radio-Club-M0OUK/NanoVNA-D/actions/workflows/makefile.yml)
 
 ## Prepare ARM Cross Tools
 
