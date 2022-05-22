@@ -19,7 +19,8 @@ jobs:
         wget -q https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2018q4/gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2
         mkdir /home/runner/arm-cross-tools
         tar xfj gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2 -C /home/runner/arm-cross-tools
-        PATH=/home/runner/arm-cross-tools/gcc-arm-none-eabi-8-2018-q4-major/bin:$PATH
+        echo "/home/runner/arm-cross-tools/gcc-arm-none-eabi-8-2018-q4-major/bin" >> $GITHUB_PATH
+        ls -l /home/runner/arm-cross-tools/gcc-arm-none-eabi-8-2018-q4-major/bin
       
     - name: Install dfu-util
       run: sudo apt install -y dfu-util
