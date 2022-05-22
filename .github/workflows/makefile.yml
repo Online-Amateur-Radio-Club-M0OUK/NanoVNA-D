@@ -1,0 +1,31 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+        
+    - name: Install ARM cross tools
+      run: |
+        wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2018q4/gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2
+        mkdir ./arm-cross-tools
+        tar xfj gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2 -C ./arm-cross-tools
+        PATH=~/arm-cross-tools/gcc-arm-none-eabi-8-2018-q4-major/bin:$PATH
+      
+    - name: Install dfu-util
+      run: sudo apt install -y dfu-util
+
+    - name: Update submodule
+      run: git submodule update --init --recursive
+      
+    - name: Run make
+      run: make
