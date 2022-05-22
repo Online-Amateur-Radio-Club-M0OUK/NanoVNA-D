@@ -3,6 +3,8 @@ name: Makefile CI
 on:
   push:
     branches: [ master ]
+    tags:
+      - "*"
   pull_request:
     branches: [ master ]
 
@@ -14,9 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: vars
-      run: echo $GITHUB_REF
-              
     - name: Install ARM cross tools
       run: |
         wget -q https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2018q4/gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2
