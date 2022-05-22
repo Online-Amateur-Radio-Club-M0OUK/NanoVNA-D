@@ -15,6 +15,8 @@ enthusiast.
 
 This repository contains source of NanoVNA firmware.
 
+This is an OARC fork with the aim of adding a few feature.
+
 ## Prepare ARM Cross Tools
 
 **UPDATE**: Recent gcc version works to build NanoVNA, no need old version.
